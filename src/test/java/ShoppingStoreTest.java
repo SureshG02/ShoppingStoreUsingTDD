@@ -31,7 +31,6 @@ public class ShoppingStoreTest {
 
         //then
         Assert.assertEquals(0, result.size());
-
     }
 
     @Test
@@ -61,5 +60,27 @@ public class ShoppingStoreTest {
         //then
         Assert.assertEquals(2, result.size());
         Assert.assertThat(result, containsInAnyOrder(mac, windows));
+    }
+
+    @Test
+    public void givenNullProduct_whenAdd_thenNullProductIsNotAdded() {
+        //given
+        Product product = null;
+
+        //when
+        List<Product> result = shoppingStore.add(product);
+
+        //then
+        Assert.assertEquals(false, result.contains(product));
+
+    }
+
+    @Test
+    public void givenNonEmptyShoppingStore_whenIsEmpty_thenFalseIsReturned() {
+        //when
+        boolean isEmpty = shoppingStore.isEmpty();
+
+        //then
+        Assert.assertEquals(false, isEmpty);
     }
 }

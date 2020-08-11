@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingStore {
-  List<Product> productList = new ArrayList<Product>();
+  private List<Product> productList = new ArrayList<Product>();
 
     public List findByName(String name) {
         List<Product> result = new ArrayList<Product>();
@@ -16,7 +16,14 @@ public class ShoppingStore {
         return result;
     }
 
-    public void add(Product product) {
-        productList.add(product);
+    public List add(Product product) {
+        if(product != null) {
+            productList.add(product);
+        }
+        return productList;
+    }
+
+    public boolean isEmpty() {
+        return productList.size() == 0;
     }
 }
